@@ -2,6 +2,11 @@ from operations import add, subtract, multiply, divide
 from user_input import get_float_input, display_operations
 
 def main():
+    """
+    Main function to run the calculator program.
+    It handles user input, displays operations, and performs calculations.
+    """
+
     operations = {
         '1': {'name': 'Add', 'func': add},
         '2': {'name': 'Subtract', 'func': subtract},
@@ -34,3 +39,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    

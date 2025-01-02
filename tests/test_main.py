@@ -1,9 +1,12 @@
 import unittest
 import sys
 import os
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
+
 from unittest.mock import patch
 from io import StringIO
+
 from main import main
 
 class TestCalculatorMenu(unittest.TestCase):
