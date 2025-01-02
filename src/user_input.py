@@ -1,17 +1,14 @@
 def get_float_input(prompt="Enter a number: "):
     while True:
-        user_input = input(prompt)
+        input_value = input(prompt)
         try:
-            return float(user_input)
+            return float(input_value)
         except ValueError:
-            print("Error: invalid input! Please enter a valid number.")
+            print("Error: Invalid input! Please enter a valid number.")
 
 
 def display_operations(operations):
-    """
-    Displays available mathematical operations to the user.
-    """
-    print("Available operations:")
+    print("\nAvailable operations:")
     for key, value in operations.items():
         print(f"{key}. {value['name']}")
-  
+    print("5. Exit")

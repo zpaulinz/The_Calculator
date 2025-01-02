@@ -15,18 +15,21 @@ def main():
         operation = input("\nEnter your choice (1, 2, 3, 4 or 5 to exit): ")
 
         if operation == '5':
-            print("Exit")
+            print("Exiting program...")
             break
 
         if operation in operations:
             num1 = get_float_input("Enter the first number: ")
             num2 = get_float_input("Enter the second number: ")
 
-            result = operations[operation]['func'](num1, num2)
-            print(f"The result is: {result if isinstance(result, str) else round(result, 2)}")
+            try:
+                result = operations[operation]['func'](num1, num2)
+                print(f"The result is: {result if isinstance(result, str) else round(result, 2)}")
+            except ValueError as e:
+                print(e)
 
         else:    
-            print("Error: invalid choice. Please select a valid operation.")
+            print("Error: Invalid choice. Please select a valid operation (1-5).")
             
 
 if __name__ == "__main__":
