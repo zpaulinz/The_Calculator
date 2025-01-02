@@ -2,7 +2,7 @@ import unittest
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
-from operations import add, subtract, multiply
+from operations import add, subtract, multiply, divide
 
 class TestOperations(unittest.TestCase):  
     def test_add_positive_numbers(self):
@@ -53,3 +53,28 @@ class TestOperations(unittest.TestCase):
 
     def test_multiply_large_numbers(self):
         self.assertEqual(multiply(1000000, 1000000), 1000000000000)
+
+
+    def test_divide_positive_numbers(self):
+        self.assertEqual(divide(6, 2), 3)  
+
+    def test_divide_negative_numbers(self):
+        self.assertEqual(divide(-6, -2), 3)  
+
+    def test_divide_mixed_numbers(self):
+        self.assertEqual(divide(-6, 2), -3)  
+
+    def test_divide_by_zero(self):
+        self.assertEqual(divide(6, 0), "Error: division by 0!")  
+
+    def test_divide_by_one(self):
+        self.assertEqual(divide(6, 1), 6)  
+
+    def test_divide_large_numbers(self):
+        self.assertEqual(divide(1000000000000, 1000000), 1000000)  
+
+    def test_divide_decimal_numbers(self):
+        self.assertEqual(divide(5.5, 2), 2.75)  
+
+    def test_divide_small_result(self):
+        self.assertEqual(divide(1, 2), 0.5) 
