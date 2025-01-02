@@ -23,7 +23,8 @@ def main():
             num2 = get_float_input("Enter the second number: ")
 
             result = operations[operation](num1, num2)
-            print("The result is: ", result if isinstance(result, str) else round(result, 2))
+            print(f"The result is: {result if isinstance(result, str) else round(result, 2)}")
+
         else:    
             print("Invalid choice. Please select a valid operation.")
             
