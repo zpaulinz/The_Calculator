@@ -9,8 +9,8 @@ def main():
         print("Invalid choice. Please select 1, 2, 3 or 4.")
         return
     
-    num1 = get_float_input(input("Enter the first number: "))
-    num2 = get_float_input(input("Enter the second number: "))
+    num1 = get_float_input("Enter the first number: ")
+    num2 = get_float_input("Enter the second number: ")
     
     if choice == '1':
         result = add(num1, num2)
