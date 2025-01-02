@@ -1,7 +1,9 @@
 import unittest
 import sys
 import os
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
+
 from operations import add, subtract, multiply, divide
 
 class TestOperations(unittest.TestCase):  
@@ -78,3 +80,4 @@ class TestOperations(unittest.TestCase):
 
     def test_divide_small_result(self):
         self.assertEqual(divide(1, 2), 0.5) 
+        

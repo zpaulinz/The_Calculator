@@ -1,10 +1,14 @@
 import unittest
 import sys
 import os
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
+
 from unittest.mock import patch
-from user_input import get_float_input, display_operations
 from io import StringIO
+
+from user_input import get_float_input, display_operations
+
 
 class TestGetFloatInput(unittest.TestCase):
     @patch('builtins.input', side_effect=["abc", "3.14"])
@@ -30,16 +34,24 @@ class TestGetFloatInput(unittest.TestCase):
 class TestDisplayOperations(unittest.TestCase):
     @patch('sys.stdout', new_callable=StringIO)
     def test_display_operations(self, mock_stdout):
-        display_operations()
+        operations = {
+            '1': {'name': 'Add'},
+            '2': {'name': 'Subtract'},
+            '3': {'name': 'Multiply'},
+            '4': {'name': 'Divide'}
+        }
+        display_operations(operations)  
         output = mock_stdout.getvalue().strip()
         expected_output = (
             "Available operations:\n"
             "1. Add\n"
             "2. Subtract\n"
             "3. Multiply\n"
-            "4. Divide"
+            "4. Divide\n"
+            "5. Exit"
         )
         self.assertEqual(output, expected_output)
+
 
 if __name__ == "__main__":
     unittest.main()

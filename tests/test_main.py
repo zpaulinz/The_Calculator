@@ -1,9 +1,12 @@
 import unittest
 import sys
 import os
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
+
 from unittest.mock import patch
 from io import StringIO
+
 from main import main
 
 class TestCalculatorMenu(unittest.TestCase):
@@ -58,7 +61,7 @@ class TestCalculatorMenu(unittest.TestCase):
     def test_invalid_operation(self, mock_stdout, mock_input):
         main()
         output = mock_stdout.getvalue()
-        self.assertIn("Invalid choice. Please select a valid operation.", output)
+        self.assertIn("Error: Invalid choice. Please select a valid operation (1-5).", output)
         self.assertIn("Exit", output)
 
     @patch('builtins.input', side_effect=['4', '6', '0', '5']) 
@@ -66,7 +69,7 @@ class TestCalculatorMenu(unittest.TestCase):
     def test_division_by_zero(self, mock_stdout, mock_input):
         main()
         output = mock_stdout.getvalue()
-        self.assertIn("Error: division by 0!", output)
+        self.assertIn("Error: Division by 0!", output)
         self.assertIn("Exit", output)
 
     @patch('builtins.input', side_effect=['1', '1000000000', '1000000000', '5'])  
@@ -107,7 +110,7 @@ class TestCalculatorMenu(unittest.TestCase):
     def test_invalid_number_input(self, mock_stdout, mock_input):
         main()
         output = mock_stdout.getvalue()
-        self.assertIn("Invalid input! Please enter a valid number.", output)
+        self.assertIn("Error: Invalid input! Please enter a valid number.", output)
         self.assertIn("The result is: 8.0", output)  # 5 + 3 = 8
         self.assertIn("Exit", output)
 
