@@ -2,28 +2,32 @@ from operations import add, subtract, multiply, divide
 from user_input import get_float_input, display_operations
 
 def main():
-    display_operations()
-    choice = input("Enter your choice (1, 2, 3 or 4): ")
+    operations = {
+        '1': add,
+        '2': subtract,
+        '3': multiply,
+        '4': divide
+    }
     
-    if choice not in ['1', '2', '3', '4']:
-        print("Invalid choice. Please select 1, 2, 3 or 4.")
-        return
-    
-    num1 = get_float_input("Enter the first number: ")
-    num2 = get_float_input("Enter the second number: ")
-    
-    if choice == '1':
-        result = add(num1, num2)
-        print(f"The sum of {num1} and {num2} is: {result}")
-    elif choice == '2':
-        result = subtract(num1, num2)
-        print(f"The result of subtracting {num2} from {num1} is: {result}")
-    elif choice == '3':
-        result = multiply(num1, num2)
-        print(f"The result of multiplying {num2} and {num1} is: {result}")
-    elif choice == '4':
-        result = divide(num1, num2)
-        print(f"The result of dividing {num1} by {num2} is: {result}")
+    while True:
+        display_operations()
+
+        operation = input("\nEnter your choice (1, 2, 3, 4 or 5): ")
+
+        if operation == '5':
+            print("Exit")
+            break
+
+        if operation in operations:
+            num1 = get_float_input("Enter the first number: ")
+            num2 = get_float_input("Enter the second number: ")
+
+            result = operations[operation](num1, num2)
+            print(f"The result is: {result if isinstance(result, str) else round(result, 2)}")
+
+        else:    
+            print("Invalid choice. Please select a valid operation.")
+            
 
 if __name__ == "__main__":
     main()
