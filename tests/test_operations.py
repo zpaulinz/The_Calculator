@@ -67,7 +67,7 @@ class TestOperations(unittest.TestCase):
         self.assertEqual(divide(-6, 2), -3)  
 
     def test_divide_by_zero(self):
-        self.assertEqual(divide(6, 0), "Error: division by 0!")  
+        self.assertEqual(divide(6, 0), "Error: Division by 0!")  
 
     def test_divide_by_one(self):
         self.assertEqual(divide(6, 1), 6)  
