@@ -58,7 +58,7 @@ class TestCalculatorMenu(unittest.TestCase):
     def test_invalid_operation(self, mock_stdout, mock_input):
         main()
         output = mock_stdout.getvalue()
-        self.assertIn("Invalid choice. Please select a valid operation.", output)
+        self.assertIn("Error: invalid choice. Please select a valid operation.", output)
         self.assertIn("Exit", output)
 
     @patch('builtins.input', side_effect=['4', '6', '0', '5']) 
@@ -107,7 +107,7 @@ class TestCalculatorMenu(unittest.TestCase):
     def test_invalid_number_input(self, mock_stdout, mock_input):
         main()
         output = mock_stdout.getvalue()
-        self.assertIn("Invalid input! Please enter a valid number.", output)
+        self.assertIn("Error: invalid input! Please enter a valid number.", output)
         self.assertIn("The result is: 8.0", output)  # 5 + 3 = 8
         self.assertIn("Exit", output)
 
