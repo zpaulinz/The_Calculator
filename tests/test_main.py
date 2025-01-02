@@ -93,7 +93,7 @@ class TestCalculatorMenu(unittest.TestCase):
         self.assertIn("The result is: 1.67", output)
         self.assertIn("Exit", output)
 
-    @patch('builtins.input', side_effect=['1', '2', '3', '3', '2', '4', '5'])
+    @patch('builtins.input', side_effect=['1', '2', '3', '2', '3', '2', '5'])
     @patch('sys.stdout', new_callable=StringIO)
     def test_complex_sequence(self, mock_stdout, mock_input):
         main()
