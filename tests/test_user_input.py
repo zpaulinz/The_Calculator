@@ -30,7 +30,13 @@ class TestGetFloatInput(unittest.TestCase):
 class TestDisplayOperations(unittest.TestCase):
     @patch('sys.stdout', new_callable=StringIO)
     def test_display_operations(self, mock_stdout):
-        display_operations()
+        operations = {
+            '1': {'name': 'Add'},
+            '2': {'name': 'Subtract'},
+            '3': {'name': 'Multiply'},
+            '4': {'name': 'Divide'}
+        }
+        display_operations(operations)  
         output = mock_stdout.getvalue().strip()
         expected_output = (
             "Available operations:\n"
@@ -40,6 +46,7 @@ class TestDisplayOperations(unittest.TestCase):
             "4. Divide"
         )
         self.assertEqual(output, expected_output)
+
 
 if __name__ == "__main__":
     unittest.main()
