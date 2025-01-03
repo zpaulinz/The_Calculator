@@ -37,7 +37,7 @@ cd The_Calculator/src
 
 2. Run the program:
 ```bash 
-python main.py
+python3 main.py
 ```  
 
 ## How to Run the Tests  
