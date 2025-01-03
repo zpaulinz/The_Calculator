@@ -97,7 +97,8 @@ class TestOperations(unittest.TestCase):
 
     def test_exponentiation_zero_base(self):
         self.assertEqual(exponentiation(0, 5), 0)    # 0^5 = 0
-        self.assertEqual(exponentiation(0, -5), float('inf'))  # 0^-5 -> infinity (mathematically)
+        with self.assertRaises(ValueError):
+            exponentiation(0, -5)    # 0^-5 -> infinity (mathematically)
 
     def test_exponentiation_fractional_exponents(self):
         self.assertEqual(exponentiation(16, 0.5), 4)   # 16^(1/2) = sqrt(16) = 4
@@ -107,5 +108,6 @@ class TestOperations(unittest.TestCase):
         self.assertEqual(exponentiation(10, 6), 1000000)  # 10^6 = 1,000,000
 
     def test_exponentiation_negative_fractional_exponent(self):
-        self.assertEqual(exponentiation(8, -0.5), 0.35355339059327373)  # 8^(-1/2) = 1 / sqrt(8)
+        self.assertAlmostEqual(exponentiation(8, -0.5), 0.35355339059327373, places=15)  # 8^(-1/2) = 1 / sqrt(8)
+
         

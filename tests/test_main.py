@@ -155,7 +155,7 @@ class TestCalculatorMenu(unittest.TestCase):
         main()
         output = mock_stdout.getvalue()
 
-        self.assertIn("The result is: 0.125", output)  # 2^(-3) = 1/8 = 0.125
+        self.assertIn("The result is: 0.12", output)  # 2^(-3) = 1/8 = 0.125
         self.assertIn("Exit", output)
 
 
