@@ -11,3 +11,6 @@ def divide(a, b):
     if b == 0:
         raise ValueError("Error: Division by 0!")
     return a / b
+
+def exponentiation(a, b):
+    return a ** b

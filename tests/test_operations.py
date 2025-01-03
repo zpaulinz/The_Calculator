@@ -4,7 +4,7 @@ import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
 
-from operations import add, subtract, multiply, divide
+from operations import add, subtract, multiply, divide, exponentiation
 
 class TestOperations(unittest.TestCase):  
     def test_add_positive_numbers(self):
@@ -82,4 +82,30 @@ class TestOperations(unittest.TestCase):
 
     def test_divide_small_result(self):
         self.assertEqual(divide(1, 2), 0.5) 
+
+
+    def test_exponentiation_positive_numbers(self):
+        self.assertEqual(exponentiation(2, 3), 8)  # 2^3 = 8
+
+    def test_exponentiation_negative_numbers(self):
+        self.assertEqual(exponentiation(-2, 3), -8)  # (-2)^3 = -8
+        self.assertEqual(exponentiation(-2, 2), 4)   # (-2)^2 = 4
+
+    def test_exponentiation_zero_exponent(self):
+        self.assertEqual(exponentiation(5, 0), 1)    # 5^0 = 1
+        self.assertEqual(exponentiation(0, 0), 1)    # 0^0 = 1 (mathematically undefined but commonly accepted as 1)
+
+    def test_exponentiation_zero_base(self):
+        self.assertEqual(exponentiation(0, 5), 0)    # 0^5 = 0
+        self.assertEqual(exponentiation(0, -5), float('inf'))  # 0^-5 -> infinity (mathematically)
+
+    def test_exponentiation_fractional_exponents(self):
+        self.assertEqual(exponentiation(16, 0.5), 4)   # 16^(1/2) = sqrt(16) = 4
+        self.assertEqual(exponentiation(27, 1/3), 3)   # 27^(1/3) = cube root of 27 = 3
+
+    def test_exponentiation_large_numbers(self):
+        self.assertEqual(exponentiation(10, 6), 1000000)  # 10^6 = 1,000,000
+
+    def test_exponentiation_negative_fractional_exponent(self):
+        self.assertEqual(exponentiation(8, -0.5), 0.35355339059327373)  # 8^(-1/2) = 1 / sqrt(8)
         

@@ -11,4 +11,4 @@ def display_operations(operations):
     print("\nAvailable operations:")
     for key, value in operations.items():
         print(f"{key}. {value['name']}")
-    print("5. Exit")
+    print("0. Exit")
