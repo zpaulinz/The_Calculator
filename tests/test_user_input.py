@@ -38,7 +38,8 @@ class TestDisplayOperations(unittest.TestCase):
             '1': {'name': 'Add'},
             '2': {'name': 'Subtract'},
             '3': {'name': 'Multiply'},
-            '4': {'name': 'Divide'}
+            '4': {'name': 'Divide'},
+            '5': {'name': 'Exponentiation'}
         }
         display_operations(operations)  
         output = mock_stdout.getvalue().strip()
@@ -48,7 +49,8 @@ class TestDisplayOperations(unittest.TestCase):
             "2. Subtract\n"
             "3. Multiply\n"
             "4. Divide\n"
-            "5. Exit"
+            "5. Exponentiation\n"
+            "0. Exit"
         )
         self.assertEqual(output, expected_output)
 
