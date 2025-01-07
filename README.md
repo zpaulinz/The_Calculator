@@ -18,8 +18,7 @@ The_Calculator/
 │   ├── test_calculator.py 
 │   ├── test_operations.py   
 │   ├── test_user_input.py   
-│   └── test_utils.py  
-│   └── test_main.py       
+│   └── test_utils.py      
 ├── LICENSE
 └── README.md                
 ```
@@ -59,9 +58,6 @@ python3 -m unittest tests/test_user_input.py
 ```
 ```bash  
 python3 -m unittest tests/test_utils.py
-```  
-```bash  
-python3 -m unittest tests/test_main.py
 ```  
 
 
