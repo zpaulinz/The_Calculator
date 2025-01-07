@@ -1,10 +1,12 @@
+from utils import display_error_message
+
 def display_operations(operations):
     """
     Displays the available operations to the user.
     """
-    print("\nAvailable operations:")
+    print("\nAvailable operations:".upper())
     for key, value in operations.items():
-        print(f"{key}. {value[0]}")
+        print(f"{key}. {value[0]}".upper())
     print("0. Exit")
     
 
@@ -16,12 +18,13 @@ def get_user_choice(operations):
     display_operations(operations)
     
     while True:
-        choice = input("\nChoose an operation (0 to exit): ").strip()
+        choice = input("\nChoose an operation (0 to exit): ".upper()).strip()
+        print()
 
         if choice in operations or choice == '0':
             return choice
         else:
-            print("Error: Invalid choice! Please select a valid operation.")
+            display_error_message("Error: Invalid choice! Please select a valid operation.")
             display_operations(operations)
 
 def get_float_input(prompt="Enter a number: "):
@@ -34,7 +37,7 @@ def get_float_input(prompt="Enter a number: "):
         try:
             return float(input_value)
         except ValueError:
-            print("Error: Invalid input! Please enter a valid number.")
+            display_error_message("Error: Invalid input! Please enter a valid number.")
 
 
 def get_numbers_for_operation():
@@ -44,6 +47,7 @@ def get_numbers_for_operation():
     """
     num1 = get_float_input("Enter the first number: ")
     num2 = get_float_input("Enter the second number: ")
+    print()
     return num1, num2
 
 
