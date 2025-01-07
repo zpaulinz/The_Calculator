@@ -1,42 +1,30 @@
-from operations import add, subtract, multiply, divide, exponentiation
-from user_input import get_float_input, display_operations
+from user_input import get_user_choice, get_numbers_for_operation, get_user_choice_for_continue
+from calculator import Calculator
 
+def exit_program():
+    print("Exiting program. Thank you for using The_Calculator!")
+    exit(0)
+    
 def main():
-    """
-    Main function to run the calculator program.
-    It handles user input, displays operations, and performs calculations.
-    """
-
-    operations = {
-        '1': {'name': 'Add', 'func': add},
-        '2': {'name': 'Subtract', 'func': subtract},
-        '3': {'name': 'Multiply', 'func': multiply},
-        '4': {'name': 'Divide', 'func': divide},
-        '5': {'name': 'Exponentiation', 'func': exponentiation}
-    }
+    calculator = Calculator()
     
     while True:
-        display_operations(operations)
-
-        operation = input("\nEnter your choice (1, 2, 3, 4, 5 or 0 to exit): ")
+        operation = get_user_choice(calculator.operations)
 
         if operation == '0':
-            print("Exiting program...")
-            break
+            exit_program()
 
-        if operation in operations:
-            num1 = get_float_input("Enter the first number: ")
-            num2 = get_float_input("Enter the second number: ")
-
-            try:
-                result = operations[operation]['func'](num1, num2)
-                print(f"The result is: {result if isinstance(result, str) else round(result, 2)}")
-            except ValueError as e:
-                print(e)
-
-        else:    
-            print("Error: Invalid choice. Please select a valid operation (0-5).")
+        num1, num2 = get_numbers_for_operation()
+        
+        try:
+            result = calculator.perform_operation(operation, num1, num2)
+            print(f"The result is: {result if isinstance(result, str) else round(result, 2)}")               
             
+            if not get_user_choice_for_continue():
+                exit_program()
+        
+        except ValueError as e:
+            print(e)   
 
 if __name__ == "__main__":
     main()
