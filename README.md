@@ -24,11 +24,11 @@ The_Calculator/
 └── README.md                
 ```
 In this structure:
-- `src/calculator.py` contains the `Calculator` class. This class is responsible for managing the available operations and performing the selected operations on user input. It integrates the mathematical functions from `operations.py` with the user choices.
-- `src/operations.py` contains the mathematical functions for various operations such as `add`, `subtract`, `multiply`, `divide`, and `exponentiation`. These functions are used by the `Calculator` class to perform calculations based on the user's selection.
-- `src/user_input.py` handles user input validation. This module ensures the user provides valid input for operations and numbers. It includes functions for selecting operations, entering numeric values, and asking if the user wants to continue performing operations.
-- `src/utils.py` includes utility functions for displaying formatted messages. These functions are used to display success, error, and warning messages in colored text to enhance the UX.
-- `src/main.py` contains the core logic that integrates all the components, runs the calculator, and interacts with the user to perform operations. This is where the main loop runs, asking the user for input and executing operations until the user decides to exit.
+- `src/calculator.py` contains the 'Calculator' class, which manages operations and performs calculations based on user input
+- `src/operations.py` contains mathematical functions (add, subtract, multiply, divide, exponentiate) used by the 'Calculator' class
+- `src/user_input.py` handles user input validation, including operation selection, number entry, and asking about continuation
+- `src/utils.py` contains helper functions for displaying success, error, and warning messages in color enhancing UX
+- `src/main.py` contains the core program logic that integrates all components and interacts with the user
 - `tests/` includes unit tests for all major components of the project
 
 ## Requirements  
