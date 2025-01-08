@@ -6,7 +6,7 @@ def display_operations(operations):
     """
     print("\nAvailable operations:".upper())
     for key, value in operations.items():
-        print(f"{key}. {value[0]}".upper())
+        print(f"{key}. {value[0].upper()}")
     print("0. Exit")
     
 
@@ -26,6 +26,7 @@ def get_user_choice(operations):
         else:
             display_error_message("Error: Invalid choice! Please select a valid operation.")
             display_operations(operations)
+
 
 def get_float_input(prompt="Enter a number: "):
     """
@@ -58,3 +59,4 @@ def get_user_choice_for_continue():
     """
     continue_choice = input("Do you want to perform another operation? (0 to exit, any other key to continue): ").strip()
     return continue_choice != '0'
+
